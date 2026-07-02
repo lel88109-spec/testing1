@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Classification</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">☁️ Cloud Classifier</div>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active" data-page="quiz">Quiz</a></li>
+                <li><a href="#" class="nav-link" data-page="ai-weather">AI Weather Model</a></li>
+                <li><a href="#" class="nav-link" data-page="photo">Photo Upload</a></li>
+                <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Quiz Page -->
+        <div id="quiz" class="page active">
+            <div class="page-content">
+                <h1>Cloud Classification Quiz</h1>
+                <p class="page-description">Test your knowledge of different cloud types by identifying them in real-time using your webcam.</p>
+                
+                <div class="quiz-container">
+                    <div id="webcam-container" class="webcam-box"></div>
+                    
+                    <div class="controls">
+                        <button id="startBtn-quiz" class="btn btn-primary" onclick="startWebcam('quiz')">Start Camera</button>
+                        <button id="stopBtn-quiz" class="btn btn-danger" onclick="stopWebcam('quiz')" disabled>Stop Camera</button>
+                    </div>
+                    
+                    <div id="quiz-predictions" class="predictions-panel">
+                        <h3>Cloud Type Detected</h3>
+                        <div id="label-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Weather Model Page -->
+        <div id="ai-weather" class="page">
+            <div class="page-content">
+                <h1>AI Weather Model</h1>
+                <p class="page-description">Our advanced AI model analyzes cloud patterns to predict weather conditions.</p>
+                
+                <div class="weather-container">
+                    <div class="weather-grid">
+                        <div class="weather-card">
+                            <h3>Real-time Analysis</h3>
+                            <p>Get instant weather predictions based on cloud classification</p>
+                            <button id="startBtn-weather" class="btn btn-primary" onclick="startWebcam('weather')">Start Analysis</button>
+                            <button id="stopBtn-weather" class="btn btn-danger" onclick="stopWebcam('weather')" disabled>Stop</button>
+                        </div>
+                        
+                        <div class="weather-card">
+                            <div id="webcam-container-weather" class="webcam-box-small"></div>
+                            <div id="weather-predictions" class="predictions-panel-small">
+                                <h4>Detected Clouds</h4>
+                                <div id="label-container-weather"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="weather-info">
+                        <h3>Weather Insights</h3>
+                        <div id="weather-insights">
+                            <p>Start the analysis to see weather predictions...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo Upload Page -->
+        <div id="photo" class="page">
+            <div class="page-content">
+                <h1>Photo Upload & Analysis</h1>
+                <p class="page-description">Upload a photo or take a picture to classify cloud types.</p>
+                
+                <div class="photo-container">
+                    <div class="upload-section">
+                        <div class="upload-box" id="uploadBox">
+                            <div class="upload-icon">📸</div>
+                            <p>Click or drag to upload a photo</p>
+                            <input type="file" id="photoInput" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+                    
+                    <div class="photo-analysis">
+                        <div id="photo-preview" class="photo-preview" style="display: none;">
+                            <img id="previewImage" src="" alt="Preview">
+                        </div>
+                        
+                        <button id="analyzeBtn" class="btn btn-primary" onclick="analyzePhoto()" style="display: none;">Analyze Photo</button>
+                        
+                        <div id="photo-results" class="predictions-panel" style="display: none;">
+                            <h3>Analysis Results</h3>
+                            <div id="label-container-photo"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Us Page -->
+        <div id="about" class="page">
+            <div class="page-content">
+                <h1>About Us</h1>
+                
+                <div class="about-container">
+                    <!-- About Section -->
+                    <section class="about-section" id="about-section">
+                        <h2>About Cloud Classifier</h2>
+                        <p>Cloud Classifier is an AI-powered web application that helps users identify and understand different types of clouds using machine learning technology. Built with TensorFlow and Teachable Machine, our tool makes cloud classification accessible to everyone.</p>
+                        <p>Whether you're a student, weather enthusiast, or researcher, our intuitive interface provides real-time cloud identification and weather insights.</p>
+                    </section>
+
+                    <!-- FAQ Section -->
+                    <section class="about-section" id="faq-section">
+                        <h2>Frequently Asked Questions</h2>
+                        <div class="faq-container">
+                            <div class="faq-item">
+                                <button class="faq-question" onclick="toggleFAQ(this)">
+                                    What cloud types can this app identify?
+                                    <span class="faq-arrow">▼</span>
+                                </button>
+                                <div class="faq-answer" style="display: none;">
+                                    <p>Our app can identify 14 different cloud types including Cirrus, Cumulus, Stratus, Cumulonimbus, Altocumulus, Altostratus, Nimbostratus, Stratocumulus, Cirrocumulus, Cirrostratus, Contrails, Orographic, Mammatus, and Lenticular clouds.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" onclick="toggleFAQ(this)">
+                                    How accurate is the AI model?
+                                    <span class="faq-arrow">▼</span>
+                                </button>
+                                <div class="faq-answer" style="display: none;">
+                                    <p>Our model achieves high accuracy through deep learning. However, accuracy may vary depending on image quality, lighting conditions, and cloud visibility. The model is trained on thousands of cloud images.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" onclick="toggleFAQ(this)">
+                                    Do you store my photos?
+                                    <span class="faq-arrow">▼</span>
+                                </button>
+                                <div class="faq-answer" style="display: none;">
+                                    <p>No, we do not store any photos you upload. All analysis is done locally in your browser for your privacy and security.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" onclick="toggleFAQ(this)">
+                                    Can I use this on my mobile device?
+                                    <span class="faq-arrow">▼</span>
+                                </button>
+                                <div class="faq-answer" style="display: none;">
+                                    <p>Yes! Cloud Classifier is fully responsive and works on mobile devices, tablets, and desktop computers. The webcam feature works on iOS and Android devices.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question" onclick="toggleFAQ(this)">
+                                    What technologies does this use?
+                                    <span class="faq-arrow">▼</span>
+                                </button>
+                                <div class="faq-answer" style="display: none;">
+                                    <p>We use TensorFlow.js for machine learning in the browser, Teachable Machine for model training, and vanilla JavaScript for the interface.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Contact Section -->
+                    <section class="about-section" id="contact-section">
+                        <h2>Contact Us</h2>
+                        <div class="contact-form">
+                            <form onsubmit="handleContactSubmit(event)">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subject">Subject</label>
+                                    <input type="text" id="subject" name="subject" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" rows="5" required></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </form>
+                        </div>
+                        
+                        <div class="contact-info">
+                            <h3>Other Ways to Reach Us</h3>
+                            <p>📧 Email: info@cloudclassifier.com</p>
+                            <p>🐦 Twitter: @CloudClassifier</p>
+                            <p>💬 Discord: Join our community server</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0"></script>
+    <script src="script.js"></script>
+</body>
+</html>
