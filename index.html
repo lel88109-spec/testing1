@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Classification</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar sidebar-left">
+            <h3>Categories</h3>
+            <div class="category-list">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="cirrus">Cirrus</button>
+                <button class="category-btn" data-category="cumulus">Cumulus</button>
+                <button class="category-btn" data-category="stratus">Stratus</button>
+                <button class="category-btn" data-category="other">Other</button>
+            </div>
+        </aside>
+
+        <!-- Center Content -->
+        <main class="main-content">
+            <div class="camera-section">
+                <div id="webcam-container"></div>
+                <button id="startBtn" onclick="startWebcam()">Start Camera</button>
+                <button id="stopBtn" onclick="stopWebcam()" disabled>Stop Camera</button>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="sidebar sidebar-right">
+            <h3>Predictions</h3>
+            <div id="label-container"></div>
+        </aside>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0"></script>
+    <script src="script.js"></script>
+</body>
+</html>
