@@ -1,44 +1,121 @@
+/* Importing Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Miniver&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-    color: #333;
+* {
+    margin:0;
+    pradding:0;
+    box-sizing: border-box;
+    font-family: font-family: "Poppins", sans-serif;;
 }
 
-/* Navbar */
-.navbar {
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+:root {
+/* colors */
+    --white-color:#FFFFFF;
+    --dark-color:#2F4156;
+    --primary-color:#CBD9E6;
+    --teal-color:#567CBD;
+    --secondary-color:#F5EFEB;
+
+/* Font size */
+--font-size-s: 0.9rem;
+--font-size-n: 1rem-;
+--font-size-m: 1.12rem;
+--font-size-l: 1.5rem;
+--font-size-xl: 2rem;
+--font-size-xxl: 2.3rem;
+
+/* Font weight */ 
+--font-weight-normal:400;
+--font-weight-medium:500;
+--font-weight-semibold:600;
+--font-weight-bold:700;   
+
+/* Border radius */    
+--border-radius-s:8px;
+--border-radius-m:30px;
+--border-radius-circle:50%; 
+
+/* Site max width */     
+--site-max-width:1300px;
 }
 
+/* Stylings for whole site */  
+ul{
+list-style: none;
+}    
+
+a{
+text-decoration: none;
+border:none;
+background:none;
+}
+    
+button{
+cursor: pointer;
+}
+
+img{
+width:100%;
+}
+
+.section-content{
+margin:0 auto;
+padding:0 20px;
+max-width:var--site-max-width;
+
+ /* Navbar styling */  
+header{
+background:var--primary-color;    
+}
+
+header . navbar{
+displat:flex;
+padding:20px;
+align-items:center;
+justify-content: space-between
+}
+    
+.navbar .nav-logo-text .nav-link{
+color:var--white-color;
+font-size:var--font-size-xl
+font-weight:var--font-weight-semibold
+}
+
+.nav-AI weather model{
+display:flex;
+gap:10px;
+    
+.navbar .nav-AI weather model .nav-link{
+padding:10px 18px;
+color:var--white-color;
+font-size:var--font-size-m
+border-radius:var--vorder-radius-m
+transition:0.3 ease;    
+}
+
+.navbar .nav-AI weather model .nav-link:hover{
+color:var--primary-color;
+background:var--secondary-color
+
+}
 .nav-container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding:0;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #667eea;
-}
 
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
+
+
 }
 
 .nav-link {
@@ -48,12 +125,8 @@ body {
     padding: 0.5rem 1rem;
     border-radius: 6px;
     transition: all 0.3s ease;
-}
 
-.nav-link:hover {
-    background-color: #f0f0f0;
-    color: #667eea;
-}
+
 
 .nav-link.active {
     background-color: #667eea;
